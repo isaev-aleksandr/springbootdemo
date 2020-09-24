@@ -25,8 +25,8 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book saveBook (Book book){
-        return bookRepository.save(book);
+    public void saveBook (Book book){
+        bookRepository.save(book);
     }
 
     public void deleteById(Short id){

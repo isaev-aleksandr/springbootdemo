@@ -8,8 +8,22 @@
 <form action="#" th:action="@{/book-create}" th:object="${book}" method="post">
     <label for="bookName">Book Name</label>
     <input type="text" th:field="*{bookName}" id="bookName" placeholder="Book Name">
-    <label for="genre">Author</label>
+
+    <label for="genre">Genre</label>
     <input type="text" th:field="*{genre}" id="genre" placeholder="Genre">
+
+    <label for="author">Author</label>
+    <input type="text" th:field="*{author}" id="author" placeholder="Author">
+
+    <label for="publication">Publication</label>
+    <input type="number" th:field="*{publication}" id="publication" placeholder="publication">
+
+    <label for="countPages">Count pages</label>
+    <input type="number" th:field="*{countPages}" id="countPages" placeholder="countPages">
+
+    <label for="price">Price</label>
+    <input type="number" th:field="*{price}" id="price" placeholder="price">
+
     <input type="submit" value="Create Book">
 </form>
 </body>

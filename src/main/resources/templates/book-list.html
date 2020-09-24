@@ -3,6 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Books</title>
+    <style type="text/css">
+        TABLE {
+            width: 1000px;
+            border-collapse: collapse;
+        }
+        TD, TH {
+            padding: 20px; /* Поля вокруг содержимого таблицы */
+            border: 1px solid black; /* Параметры рамки */
+        }
+        TH {
+            background: #b0e0e6;
+        }
+    </style>
 </head>
 <body>
 <div th:switch="${books}">
@@ -15,6 +28,10 @@
                 <th>Id</th>
                 <th>Book name</th>
                 <th>Genre</th>
+                <th>Author</th>
+                <th>Publication</th>
+                <th>Count pages</th>
+                <th>Price</th>
             </tr>
             </thead>
             <tbody>
@@ -22,6 +39,10 @@
                 <td th:text="${book.id}"></td>
                 <td th:text="${book.bookName}"></td>
                 <td th:text="${book.genre}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.publication}"></td>
+                <td th:text="${book.countPages}"></td>
+                <td th:text="${book.price}"></td>
                 <td><a th:href="@{book-update/{id}(id=${book.id})}">Edit</a></td>
                 <td><a th:href="@{book-delete/{id}(id=${book.id})}">Delete</a></td>
             </tr>
