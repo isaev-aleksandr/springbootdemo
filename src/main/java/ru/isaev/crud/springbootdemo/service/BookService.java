@@ -32,4 +32,8 @@ public class BookService {
     public void deleteById(Short id){
         bookRepository.deleteById(id);
     }
+
+    public List<Book> findAllByBookNameOrGenreOrAuthor (String request){
+        return bookRepository.findAllByBookNameOrGenreOrAuthor(request, request, request);
+    }
 }

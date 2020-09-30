@@ -9,8 +9,8 @@
             border-collapse: collapse;
         }
         TD, TH {
-            padding: 20px; /* Поля вокруг содержимого таблицы */
-            border: 1px solid black; /* Параметры рамки */
+            padding: 20px;
+            border: 1px solid black;
         }
         TH {
             background: #b0e0e6;
@@ -18,14 +18,18 @@
     </style>
 </head>
 <body>
-    <div th:switch="${books}">
+<div th:switch="${booksSearch}">
     <h2 th:case="null">Books not found!</h2>
     <div th:case="*">
-        <h2>Books</h2>
+        <h2 th:text="'Title/genre/author =' + ${booksSearch.get(0).bookName} + ', found ' + ${booksSearch.size()}">Books</h2>
         <form action="#" th:object="${bookSearch}" th:action="@{/book-search}" method="get">
             <label for="request">Title of the book</label>
             <input type="text" th:field="*{bookName}" id="request" placeholder="Title or genre">
             <input type="submit" value="Search book">
+        </form>
+        </br>
+        <form th:action="@{/books}">
+            <button>Back</button>
         </form>
         </br>
         <table>
@@ -42,7 +46,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="book : ${books}">
+            <tr th:each="book : ${booksSearch}">
                 <td th:text="${book.id}"></td>
                 <td th:text="${book.bookName}"></td>
                 <td th:text="${book.genre}"></td>
